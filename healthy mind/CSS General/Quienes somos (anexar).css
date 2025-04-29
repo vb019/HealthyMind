@@ -1,280 +1,705 @@
-/* Estilos generales para el cuerpo */
-.sec_quienes_somos {
-    font-family: "Comfortaa", sans-serif;
+/* Estilos generales */
+* {
     margin: 0;
     padding: 0;
-    background-color:#d3c9f7;
-    border: none;
     box-sizing: border-box;
 }
 
-/* Estilos de la cabecera */
+body {
+    font-family: "Comfortaa", sans-serif;
+    background-image: url(img/778ceecb-3ca1-4994-aa9a-7fa5305e4474.png);
+    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    color: #333;
+    overflow-x: hidden; /* Evita scroll horizontal */
+    position: relative;
+}
+
+/* Transición de entrada (Overlay) */
+.transition-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #8664ff; /* Color violeta para el overlay */
+    z-index: 9999; /* Asegura que esté por encima de todo */
+    opacity: 1;
+    transition: opacity 1s ease-in-out; /* Transición de opacidad */
+    pointer-events: none; /* Evita interacción mientras está visible */
+}
+
+/* Animaciones generales para elementos */
+.animate-element {
+    opacity: 0;
+    transform: translateY(30px); /* Empieza ligeramente abajo */
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.animate-element.visible { /* Clase añadida por JS cuando el elemento es visible */
+    opacity: 1;
+    transform: translateY(0);
+}
+
 .header {
-    display: grid;
-    grid-template-columns: 1fr auto;
-    justify-content: space-between; /* Mueve el logo a la derecha */
+    display: flex;
+    justify-content: space-between; /* Deja espacio entre el h1 y el logo */
+    align-items: center; /* Centra verticalmente */
+    background-color: rgba(211, 201, 247, 0.6);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    color: #333;
+    padding: 10px 25px; /* Más delgado */
+    margin: 20px;
+    box-shadow: 0 2px 10px rgba(241, 138, 255, 0.6);
+    border-radius: 12px;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    z-index: 10;
+   
+}
+
+/* Logotipo */
+.logo-container {
+    display: flex;
+    justify-content: center;
     align-items: center;
-    background-color: #d3c9f7;
-    text-align: center;
-    color: #d3c9f7;
-    padding: 5px 10px;
-    margin:0 20px;
-    box-shadow: 0 4px 20px hwb(293 54% 0%);
-    border-radius: 8px;
-    
+    height: 100px;
 }
 
-/* Logo */
+.logo-container:hover {
+    transform: scale(1.05);
+}
+
 .logo {
-    width: 300px;
-    transition: transform 0.40s;
+    width: 200px; /* Tamaño del logo */
+    height: auto;
+    display: block;
+    transition: transform 0.4s ease;
 }
 
-.logo:hover {
-    transform: scale(1.1); /* Efecto de zoom al pasar el mouse */
-}
-
-/* Estilos de la llamada a la acción */
-.cta-button {
-    display: inline-block;
-    padding: 12px 24px;
-    color: white;
-    font-size: 18px;
-    text-decoration: none;
-    border-radius: 8px; /* Bordes redondeados */
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    background-color:#f18aff;
-}
-
-.cta-button:hover {
-    background-color:#8664ff ; /* Color más oscuro al pasar el mouse */
-    transform: scale(1.05); /* Efecto de aumento ligero */
-}
-
-/* Estilo para el título */
-.h1 {
-    font-size: 400px;
+/* Título principal */
+h1 {
+    font-size: 80px;
+    font-weight: 400;
     color: #000000;
-    font-size: 93px;
+    margin: 0;
+    text-align: center;
+    text-shadow: 2px 2px 4px rgba(241, 138, 255, 0.5);
+    flex: 1; /* Ocupa el espacio para quedar centrado */
+}
+
+/* --- Media Queries (Responsivo) --- */
+
+
+/* --- Contenido Principal --- */
+#cuerpo {
+    padding: 30px;
+    margin: 20px;
+    background-color: rgba(255, 255, 255, 0.3); /* Fondo blanco semi-transparente */
+    backdrop-filter: blur(15px); /* Blur más sutil que la cabecera */
+    -webkit-backdrop-filter: blur(15px);
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(241, 138, 255, 0.4); /* Sombra más sutil */
+}
+
+/* Secciones de contenido */
+.content-section {
+    margin-bottom: 40px; /* Espacio vertical entre secciones */
+    padding: 30px; /* Padding interno */
+    background-color: rgba(255, 255, 255, 0.4); /* Ligeramente más opaco */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(134, 100, 255, 0.15); /* Sombra muy sutil */
+    /* Eliminamos el border-bottom para un look más limpio entre secciones */
+}
+
+.content-section:last-child {
+    margin-bottom: 0; /* La última sección no necesita margen inferior */
+}
+
+/* Títulos de Sección (H2) */
+h2 {
+    font-size: 2rem; /* Tamaño ajustado */
+    color: #8664ff; /* Color violeta principal */
+    margin-bottom: 25px; /* Espacio debajo del título */
+    text-align: center;
+    position: relative;
+    padding-bottom: 10px; /* Espacio para la línea inferior */
+}
+
+h2::after { /* Línea decorativa debajo del H2 */
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 70px; /* Ancho de la línea */
+    height: 3px; /* Grosor de la línea */
+    background: linear-gradient(to right, #f18aff, #8664ff); /* Degradado */
+    border-radius: 2px;
+}
+
+/* Párrafos */
+p {
+    font-size: 1.05rem; /* Tamaño ligeramente ajustado */
+    line-height: 1.7; /* Interlineado */
+    color: #333; /* Color de texto principal */
+    margin-bottom: 15px; /* Espacio entre párrafos */
+    text-align: justify; /* Texto justificado */
+}
+
+p:last-of-type {
+    margin-bottom: 0; /* El último párrafo de una sección no necesita margen inferior */
+}
+
+/* --- Sección Equipo --- */
+.team { /* Contenedor para la vista de escritorio */
+    display: grid; /* Usamos Grid para mejor control */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Columnas responsivas */
+    gap: 30px; /* Espacio entre miembros */
+    margin-top: 30px;
+}
+
+.team-member {
+    text-align: center;
+    /* width: 30%; Ya no es necesario con grid */
+    /* margin-bottom: 30px; Controlado por gap */
+    padding: 25px; /* Padding interno */
+    background-color: rgba(255, 255, 255, 0.6); /* Fondo más opaco */
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(134, 100, 255, 0.2);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    overflow: hidden; /* Asegura que el contenido no se salga */
+}
+
+.team-member:hover {
+    transform: translateY(-8px); /* Elevar al pasar el mouse */
+    box-shadow: 0 8px 25px rgba(134, 100, 255, 0.4); /* Sombra más pronunciada */
+}
+
+.member-photo {
+    width: 140px; /* Tamaño ajustado */
+    height: 140px;
+    border-radius: 50%; /* Círculo perfecto */
+    background-color: #f18aff; /* Color de fondo si no hay imagen */
+    margin: 0 auto 20px; /* Centrado y con espacio debajo */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    position: relative;
+    overflow: hidden; /* Para el efecto ::after */
+    border: 3px solid white; /* Borde blanco opcional */
+}
+
+.member-photo img { /* Estilo para la imagen dentro del contenedor */
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Asegura que la imagen cubra el círculo */
+}
+
+/* Efecto overlay sobre la foto, puede eliminarse si interfiere con la imagen real */
+/* .member-photo::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, rgba(134, 100, 255, 0.3), rgba(241, 138, 255, 0.3));
+    border-radius: 50%;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+}
+
+.team-member:hover .member-photo::after {
+    opacity: 0;
+} */
+
+.team-member h3 {
+    font-size: 1.25rem; /* Tamaño nombre */
+    color: #8664ff;
+    margin-bottom: 8px;
+}
+
+.team-member p { /* Estilo para el rol/descripción del miembro */
+    font-size: 0.95rem;
+    color: #555;
+    line-height: 1.5;
+    text-align: center; /* Centrado */
+    margin-bottom: 0;
+}
+
+/* --- Misión y Visión --- */
+.mision-vision {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Dos columnas iguales */
+    gap: 30px; /* Espacio entre Misión y Visión */
+    margin-top: 30px;
+    /* Eliminamos position relative y top */
+}
+
+.mision, .vision {
+    padding: 30px; /* Más padding */
+    border-radius: 12px;
+    background-color: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    box-shadow: 0 4px 15px rgba(134, 100, 255, 0.2);
+    transition: transform 0.4s ease, box-shadow 0.4s ease; /* Añadida transición de sombra */
+}
+
+.mision:hover, .vision:hover {
+    transform: scale(1.03) translateY(-5px); /* Efecto combinado */
+    box-shadow: 0 8px 20px rgba(134, 100, 255, 0.3);
+}
+
+.mision h3, .vision h3 {
+    font-size: 1.4rem; /* Tamaño título Misión/Visión */
+    color: #df7af8; /* Color rosa/violeta */
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+/* --- Valores --- */
+/* Eliminamos el ajuste de posición del :nth-child(4) para simplificar */
+
+.valores-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Columnas responsivas */
+    gap: 25px; /* Espacio entre tarjetas de valor */
+    margin-top: 30px;
+}
+
+.valor-card {
+    background-color: rgba(255, 255, 255, 0.6); /* Fondo */
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-radius: 12px;
+    padding: 25px 20px; /* Padding */
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(134, 100, 255, 0.15);
+    transition: all 0.4s ease; /* Transición más suave */
+    min-height: 200px; /* Altura mínima */
+    position: relative;
+    overflow: hidden; /* Para el efecto hover */
+    cursor: pointer;
+    display: flex; /* Para centrar contenido verticalmente */
+    flex-direction: column;
+    justify-content: center;
+}
+
+.valor-icon { /* Contenedor del ícono (si usas <i> o <span>) */
+    font-size: 2.5rem; /* Tamaño ícono */
+    margin-bottom: 15px;
+    color: #8664ff; /* Color del ícono */
+    line-height: 1; /* Asegura que no tome espacio extra */
+}
+
+.valor-title {
+    color: #8664ff;
     font-weight: 600;
-    text-align: center;
+    font-size: 1.2rem; /* Tamaño título valor */
+    margin-bottom: 10px;
+    transition: opacity 0.3s ease; /* Para desvanecer al mostrar descripción */
 }
 
-/* Sección */
-#cuerpo {
-    padding: 20px;
-    margin: 20px;
-    background-color: #d3c9f7;
-    border-radius: 8px;
-    box-shadow: 0 4px 20px  rgba(241, 138, 255);
-    text-align: center;
-} 
-
-#quienes-somos {
-    border: none;
-    margin: 0;
-    padding: 0;
-    background-color:#d3c9f7;
-    
-   
-}
-
-
-/* Estilos para el equipo */
-.team {
+.valor-description { /* Descripción que aparece al hacer hover */
+    position: absolute;
+    bottom: 0; /* Empieza abajo */
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, rgba(134, 100, 255, 0.95), rgba(241, 138, 255, 0.95)); /* Fondo degradado */
+    color: white;
+    padding: 20px 15px;
+    transition: transform 0.4s ease; /* Transición de entrada */
     display: flex;
-    justify-content: space-around;
-    margin-top: 20px;
-    flex-wrap: wrap; /* Permite que los miembros se acomoden en varias filas en pantallas pequeñas */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 12px; /* Mismo borde que la tarjeta */
+    transform: translateY(101%); /* Inicialmente oculto abajo */
+    opacity: 0; /* Inicialmente invisible */
 }
 
-.team-member {
+.valor-description h3 {
+    font-size: 1.3rem; /* Título en la descripción */
+    margin-bottom: 10px;
+    color: white;
     text-align: center;
-    width: 30%;
-    margin-bottom: 20px;
 }
 
-.team-member img {
-    width: 150px;
-    height: 150px;
+.valor-description p {
+    font-size: 1rem; /* Texto en la descripción */
+    line-height: 1.5;
+    color: white;
+    text-align: center;
+    margin-bottom: 0;
+}
+
+.valor-card:hover {
+    transform: translateY(-5px); /* Elevar tarjeta */
+    box-shadow: 0 8px 20px rgba(134, 100, 255, 0.3);
+}
+
+.valor-card:hover .valor-icon,
+.valor-card:hover .valor-title {
+    opacity: 0; /* Ocultar ícono y título al mostrar descripción */
+}
+
+.valor-card:hover .valor-description {
+    transform: translateY(0); /* Mostrar descripción */
+    opacity: 1;
+}
+
+/* --- Contacto --- */
+/* Eliminamos el ajuste de posición del :last-child para simplificar */
+
+.contacto {
+    background-color: rgba(223, 122, 248, 0.7); /* Fondo rosa/violeta */
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    padding: 30px 25px; /* Padding aumentado */
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(134, 100, 255, 0.3);
+    max-width: 450px; /* Ancho máximo ajustado */
+    margin: 40px auto 30px; /* Margen superior/inferior y centrado horizontal */
+    text-align: center;
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+    /* Eliminamos position relative y top */
+}
+
+.contacto:hover {
+    transform: translateY(-8px) scale(1.02); /* Efecto combinado */
+    box-shadow: 0 12px 25px rgba(134, 100, 255, 0.5);
+}
+
+.contacto h2 { /* Estilo específico para el H2 de contacto si es necesario */
+    color: white; /* Texto blanco sobre fondo de color */
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+}
+
+.contacto h2::after { /* Línea bajo el H2 de contacto */
+     background: white; /* Línea blanca */
+}
+
+.contacto p {
+    color: white;
+    margin-bottom: 25px; /* Espacio antes del botón */
+    text-align: center;
+    font-size: 1.1rem;
+}
+
+
+.contact-button {
+    display: inline-block;
+    padding: 14px 35px; /* Botón más grande */
+    color: #ffffff;
+    font-size: 1.1rem; /* Tamaño texto botón */
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 50px; /* Bordes redondeados */
+    background: linear-gradient(45deg, #8664ff, #f18aff); /* Degradado */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Sombra más notable */
+    border: none; /* Sin borde */
+    cursor: pointer;
+}
+
+.contact-button:hover {
+    transform: scale(1.08); /* Agrandar más */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* Sombra más intensa */
+}
+
+/* --- Footer --- */
+.footer {
+    text-align: center;
+    padding: 25px; /* Más padding */
+    margin: 0 20px 20px 20px; /* Margen solo abajo y laterales */
+    color: #8664ff;
+    font-size: 0.9rem;
+    /* Eliminamos position relative y top */
+    background-color: rgba(255, 255, 255, 0.6); /* Fondo similar a otros elementos */
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-radius: 12px;
+    box-shadow: 0 -4px 10px rgba(134, 100, 255, 0.1); /* Sombra superior sutil */
+}
+
+/* --- Carrusel Móvil --- */
+.mobile-carousel {
+    display: none; /* Oculto por defecto */
+    margin-top: 30px;
+    position: relative; /* Necesario para los dots */
+    overflow: hidden; /* Asegura que no se vea contenido fuera de lugar */
+    border-radius: 12px; /* Bordes redondeados para el contenedor */
+}
+
+.carousel-container {
+    width: 100%;
+    overflow: hidden; /* Oculta los slides que no están visibles */
+    position: relative;
+    border-radius: 12px; /* Bordes redondeados */
+}
+
+.carousel-track {
+    display: flex; /* Coloca los slides uno al lado del otro */
+    transition: transform 0.5s ease-in-out; /* Animación de deslizamiento */
+    /* No necesita width aquí, los slides lo definen */
+}
+
+.carousel-slide {
+    min-width: 100%; /* Cada slide ocupa todo el ancho del contenedor */
+    padding: 0 10px; /* Añade un pequeño espacio lateral dentro del slide */
+    box-sizing: border-box; /* Asegura que el padding no afecte el ancho total */
+    /* Visibilidad gestionada por JS y CSS responsive, no necesita display/opacity aquí */
+}
+
+/* OCULTAR FLECHAS DE NAVEGACIÓN DEL CARRUSEL */
+/* Esta regla asegura que las flechas (si existen en el HTML con estas clases) no se muestren */
+.carousel-nav,
+.carousel-prev,
+.carousel-next {
+    display: none !important; /* Oculta completamente */
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none; /* Evita cualquier interacción */
+}
+
+/* Puntos de navegación del carrusel */
+.carousel-dots {
+    display: flex;
+    justify-content: center;
+    gap: 10px; /* Espacio entre puntos */
+    margin-top: 20px; /* Espacio sobre los puntos */
+    position: absolute; /* Posicionar sobre el carrusel */
+    bottom: 15px; /* Distancia desde abajo */
+    left: 50%;
+    transform: translateX(-50%); /* Centrar horizontalmente */
+    z-index: 5; /* Asegura que estén visibles sobre el contenido del slide */
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
     border-radius: 50%;
-    object-fit: cover;
+    background-color: rgba(211, 201, 247, 0.7); /* Color punto inactivo */
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(134, 100, 255, 0.5); /* Borde sutil */
+}
+
+.dot.active {
+    background-color: #8664ff; /* Color punto activo */
+    transform: scale(1.3); /* Hacer el punto activo más grande */
+    border-color: #8664ff;
 }
 
 
+/* --- Media Queries (Responsivo) --- */
 
-/* Estilos para pantallas muy pequeñas (móviles en orientación vertical) */
-@media (max-width: 480px) {
+/* Tablets y pantallas pequeñas (hasta 992px) */
+@media (max-width: 992px) {
+    h1 {
+        font-size: 2.8rem; /* Reducir tamaño título principal */
+    }
+
     .logo {
-        width: 90px; /* Aún más pequeño en pantallas muy reducidas */
+        width: 180px; /* Reducir tamaño logo */
     }
 
-    .team-member {
-        width: 100%; /* Los miembros del equipo ocupan el 100% del ancho en pantallas muy pequeñas */
+    .mision-vision {
+        grid-template-columns: 1fr; /* Una sola columna */
+        gap: 25px; /* Reducir espacio */
     }
 
-    .section {
-        margin: 10px;
+    /* .mision, .vision { ya no necesitan margen inferior extra con gap } */
+
+    .valores-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Ajuste para tablet */
+    }
+
+    .team {
+         grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); /* Ajuste para tablet */
+    }
+}
+
+/* Móviles grandes y Tablets pequeñas (hasta 768px) */
+@media (max-width: 768px) {
+    
+
+    .header {
+        grid-template-columns: 1fr; /* Una sola columna */
+        text-align: center; /* Centrar todo */
+        gap: 15px;
         padding: 15px;
-        
+        margin: 15px; /* Reducir margen */
     }
 
-    h2 {
-        font-size: 1.4em;
+    .logo-container {
+        margin: 0 auto; /* Centrar logo */
+    }
+
+    .logo {
+        width: 160px; /* Logo más pequeño */
     }
 
     h1 {
-        font-size: 20px;
+        font-size: 2.3rem; /* Título más pequeño */
         text-align: center;
-
     }
 
-    p {
-        font-size: 1em;
-        align-items: center;
-        
+    #cuerpo {
+        padding: 20px; /* Menos padding */
+        margin: 15px; /* Menos margen */
     }
 
-    .cta-button {
-        width: 100%;
-        text-align: center;
-        padding: 2px;
-    }
-}
-
-/* Sección */
-#cuerpo {
-    padding: 20px;
-    margin: 20px;
-    background-color: #d3c9f7;
-    border-radius: 8px;
-    box-shadow: 0 4px 20px  rgba(241, 138, 255);
-    text-align: justify;
-} 
-
-#quienes-somos {
-    border: none;
-    margin: 0;
-    padding: 0;
-    background-color:#d3c9f7;
-    
-   
-}
-
-
-/* Estilos para el equipo */
-.team {
-    display: flex;
-    justify-content: space-around;
-    margin-top: 20px;
-    flex-wrap: wrap; /* Permite que los miembros se acomoden en varias filas en pantallas pequeñas */
-}
-
-.team-member {
-    text-align: center;
-    width: 30%;
-    margin-bottom: 20px;
-}
-
-.team-member img {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    object-fit: cover;
-}
-/* Estilos generales para el div de contacto_correo */
-.contacto_correo {
-    background-color: #df7af8; /* Fondo gris claro */
-    padding: 20px; /* Espaciado interno */
-    border-radius: 8px; /* Bordes redondeados */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra ligera */
-    max-width: 400px; /* Ancho máximo */
-    margin: 30px auto; /* Centrado automático */
-    text-align: center; /* Centrar el texto */
-    transition: box-shadow 0.6s ease, transform 0.6s ease; /* Transición suave para sombra y transformación */
-  }
-  
-  /* Estilos para el enlace de correo */
-  .contacto_correo a {
-    color: #ffffff; /* Color del enlace (azul) */
-    text-decoration: none; /* Eliminar subrayado */
-    font-size: 18px; /* Tamaño de la fuente */
-    font-weight: bold; /* Negrita */
-    transition: color 0.3s ease, transform 0.2s ease; /* Transición suave para el color y la transformación */
-  }
-  
-  /* Estilo cuando se pasa el ratón sobre el enlace */
-  .contacto_correo a:hover {
-    color: #9eecff; /* Color más oscuro cuando se pasa el ratón */
-    transform: scale(1.9); /* Aumenta ligeramente el tamaño del texto */
-  }
-  
-  /* Estilo cuando se pasa el ratón sobre el div de contacto_correo */
-  .contacto_correo:hover {
-    transform: translateY(-5px); /* Mover ligeramente el div hacia arriba */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Sombra más grande al pasar el ratón */
-  }
-  
-  /* Estilos responsivos */
-  @media (max-width: 768px) {
-    .contacto_correo {
-      max-width: 90%; /* El ancho se ajusta al 90% de la pantalla */
-      padding: 15px; /* Reducir el padding */
-    }
-  
-    .contacto_correo a {
-      font-size: 16px; /* Reducir el tamaño del texto en pantallas pequeñas */
-    }
-  }
-  
-  @media (max-width: 480px) {
-    .contacto_correo {
-      max-width: 100%; /* El div ocupa todo el ancho disponible */
-      padding: 10px; /* Reducir más el padding */
-    }
-  
-    .contacto_correo a {
-      font-size: 14px; /* Reducir aún más el tamaño del texto */
-    }
-  }
-  
-
-/* Estilos para pantallas muy pequeñas (móviles en orientación vertical) */
-@media (max-width: 480px) {
-    .logo {
-        width: 90px; /* Aún más pequeño en pantallas muy reducidas */
-    }
-
-    .team-member {
-        width: 100%; /* Los miembros del equipo ocupan el 100% del ancho en pantallas muy pequeñas */
-    }
-
-    .section {
-        margin: 10px;
-        padding: 15px;
+    .content-section {
+        padding: 20px; /* Menos padding */
+        margin-bottom: 30px; /* Menos espacio entre secciones */
     }
 
     h2 {
-        font-size: 1.4em;
-    }
-
-    h1 {
-        font-size: 20px;
-        text-align: center;
+        font-size: 1.8rem; /* Títulos de sección más pequeños */
     }
 
     p {
-        font-size: 1em;
+        font-size: 1rem; /* Texto ligeramente más pequeño */
     }
 
-    .cta-button {
-        width: 100%;
-        text-align: center;
-        padding: 2px;
+    /* --- Ocultar Equipo de Escritorio y Mostrar Carrusel --- */
+    .team {
+        display: none; /* Oculta la grid de escritorio */
+    }
+
+    .mobile-carousel {
+        display: block; /* Muestra el carrusel */
+    }
+
+    /* Asegurar que los miembros dentro del carrusel se vean bien */
+    .carousel-slide .team-member {
+        /* Hereda la mayoría de los estilos de .team-member */
+        width: 100% !important; /* Ocupa todo el ancho del slide */
+        margin: 0 auto; /* Centrado */
+        opacity: 1 !important; /* Asegura visibilidad */
+        visibility: visible !important;
+        display: block !important; /* Asegura que se muestre como bloque */
+        transform: none !important; /* Evita transformaciones raras heredadas */
+        box-shadow: 0 4px 15px rgba(134, 100, 255, 0.2); /* Sombra estándar */
+        /* Ajustes específicos para el carrusel si son necesarios */
+         padding-bottom: 40px; /* Espacio extra abajo para que no tapen los dots */
+    }
+     .member-photo {
+        width: 120px;
+        height: 120px;
+    }
+
+
+    .valores-grid {
+        grid-template-columns: 1fr 1fr; /* Dos columnas en móvil */
+        gap: 20px;
+    }
+
+    .valor-card {
+        min-height: 180px; /* Altura mínima ajustada */
+        padding: 20px 15px;
+    }
+    .valor-icon {
+        font-size: 2rem;
+    }
+    .valor-title{
+        font-size: 1.1rem;
+    }
+     .valor-description p {
+        font-size: 0.9rem;
+    }
+
+    .contacto {
+        max-width: 90%; /* Que ocupe más ancho en móvil */
+        padding: 25px 20px;
+    }
+
+     .footer {
+        margin: 0 15px 15px 15px;
+        padding: 20px;
     }
 }
 
+/* Móviles pequeños (hasta 480px) */
+@media (max-width: 480px) {
+    h1 {
+        font-size: 2rem;
+    }
 
+    .logo {
+        width: 140px;
+    }
 
+    h2 {
+        font-size: 1.6rem;
+    }
+     p {
+        font-size: 0.95rem;
+    }
 
+    /* Miembros del equipo en carrusel ya están a 100% */
+     .member-photo {
+        width: 100px;
+        height: 100px;
+    }
 
+    .mision-vision {
+        gap: 20px;
+    }
+     .mision, .vision {
+        padding: 20px;
+    }
+      .mision h3, .vision h3 {
+        font-size: 1.3rem;
+    }
+
+    .valores-grid {
+        grid-template-columns: 1fr; /* Una sola columna */
+        gap: 20px;
+    }
+
+     .valor-card {
+        min-height: auto; /* Altura automática */
+    }
+
+    .contacto {
+        padding: 20px 15px;
+    }
+     .contact-button {
+        padding: 12px 30px;
+        font-size: 1rem;
+    }
+
+     .footer {
+        font-size: 0.8rem;
+    }
+
+     .carousel-dots {
+        bottom: 10px; /* Más cerca del borde inferior */
+    }
+      .dot {
+        width: 8px;
+        height: 8px;
+    }
+}
+
+/* Estilos para la barra de progreso de scroll (añadida por JS) */
+.scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 5px; /* Grosor de la barra */
+    width: 0%; /* Empieza en 0 */
+    background: linear-gradient(to right, #8664ff, #f18aff); /* Degradado */
+    z-index: 9998; /* Justo debajo del overlay inicial */
+    transition: width 0.1s ease-out; /* Transición suave */
+}
