@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="/CSS General/General.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <title>REGISTRATE</title>
+  </head>
+  <body id="formulario_body">
+    <div class="contenido_inicio">
+      <div class="Cont_formulario">
+        <h1 id="titulo_formulario">Registro</h1>
+        <form class="formulario_sesion">
+          <div class="datos_agrupados">
+            <div class="datos_camp" id="nameInput">
+              <i class="fa-solid fa-user"></i>
+              <input class="barra_sesion" type="text" placeholder="Nombre" />
+            </div>
+            <div class="datos_camp">
+              <i class="fa-solid fa-envelope"></i>
+              <input class="barra_sesion" type="email" placeholder="Correo" required/>
+            </div>
+            <div class="datos_camp">
+              <i class="fa-solid fa-lock"></i>
+              <input class="barra_sesion" type="password" placeholder="Contraseña" required/>
+            </div>
+            <label for="termscheckbox"><p>Acepto los <a href="#" id="abrir_terms">términos y condiciones</a></p></label
+            >
+            <!-- venta emergente (Modal) -->
+            <div id="modal_terms" class="modal_terms">
+              <div class="contenido_terms">
+                <span class="cerrar_terms">&times;</span>
+                <h2> Términos y condiciones </h2>
+                <p><strong> Términos y Condiciones de Healthy Mind 31 de marzo de 2025 </strong></p>
+                  <p><strong> 1. Aceptación de los términos: </strong>
+                  Al acceder o usar la aplicación Healthy Mind (en adelante, "la
+                  App"), usted acepta cumplir con estos Términos y Condiciones.
+                  Si no está de acuerdo con alguna de las condiciones aquí
+                  establecidas, le recomendamos no utilizar la App. </p>
+                  <p><strong> 2. Descripción de la aplicación: </strong>
+                  Healthy Mind es una aplicación diseñada para brindar apoyo 
+                  emocional a los usuarios a través de interacciones con otros usuarios, 
+                  terapeutas certificados y voluntarios entrenados, así como herramientas 
+                  de autoayuda y bienestar mental. La App proporciona acceso a 
+                  chats para facilitar el soporte emocional. </p>
+                  <p><strong> 3. Requisitos de uso:</strong>
+                  Para usar Healthy Mind, debe ser mayor de  edad o tener 
+                  el consentimiento de un tutor legal. Los usuarios
+                  deben registrarse con información precisa y actualizada, y se
+                  comprometen a mantener la confidencialidad de su cuenta y
+                  contraseña. </p>
+                 <p> 4. Uso de los servicios: 
+                  La App proporciona diversos servicios que incluyen, pero no se 
+                  limitan a, interacciones con terapeutas y voluntarios, acceso a 
+                  contenido educativo y herramientas de autoayuda. Al usar los 
+                  servicios, usted se compromete a hacerlo de manera respetuosa y 
+                  conforme a las normas de la comunidad. </p>
+                  <p> 5. Política de privacidad:
+                  Su privacidad es importante para nosotros. Puede consultar
+                  nuestra Política de Privacidad para comprender cómo
+                  recopilamos, usamos y protegemos su información personal. </p>       <!--como?--> 
+                  <p> 6. Responsabilidad de los terapeutas y voluntarios:
+                  Healthy Mind se esfuerza por proporcionar profesionales 
+                  cualificados para ayudar a los usuarios. Sin embargo, la App 
+                  no se hace responsable de los consejos proporcionados por los 
+                  terapeutas y/o voluntarios. El uso de los servicios de la App no 
+                  sustituye una consulta médica o psicológica profesional.</p>         <!--¿hay o no profesionales certificados?, ¿a quien se refiere cuando hay profecionales certificados?-->
+                  <p> 7. Limitaciones de responsabilidad: 
+                  La App y sus servicios: se proporcionan "tal
+                  cual" y "según disponibilidad". Healthy Mind no garantiza que
+                  el servicio sea ininterrumpido o libre de errores. No nos
+                  hacemos responsables de ningún daño directo, indirecto,
+                  incidental o consecuente derivado del uso de la App.</p>
+                  <p> 8. Prohibiciones Los usuarios no deben utilizar Healthy Mind
+                  para: <br>
+                  - Realizar actividades ilegales o fraudulentas. <br>
+                  - Publicar contenido que infrinja los derechos de propiedad intelectual o
+                  sea difamatorio, obsceno o perjudicial para otros usuarios. <br>
+                  - Hacer spam o enviar mensajes no solicitados. <br>
+                  - Suplantamiento de identidad. </p>
+                  <p> 9. Cancelación de cuentas:
+                  En Healthy Mind se reserva el derecho de suspender o cancelar
+                  cuentas de usuarios que violen estos Términos y Condiciones.
+                  Los usuarios tambien podran cancelar su cuenta en el momento que
+                  desee, desde la configuración de la App. </p>
+                  <p> 10. Modificación de los términos y condiciones
+                  Healthy Mind se reserva el derecho de modificar estos
+                  Términos y Condiciones en cualquier momento. Las
+                  modificaciones entrarán en vigor una vez que se publiquen en
+                  la App. Le recomendamos revisar periódicamente los Términos y
+                  Condiciones.</p> 
+                  <p> 11. Ley aplicable y jurisdicción:
+                   Estos Términos y Condiciones se regirán e interpretarán de 
+                  acuerdo con las leyes de Colombia. Cualquier disputa relacionada 
+                  con estos términos será resuelta en los tribunales competentes de
+                  Colombia. </p>
+                <button id="acceptTerms">Aceptar</button>
+              </div>
+            </div>
+            <input type="checkbox" id="termscheckbox" required/>
+            <p><a href="/contenido de la pagina/recuperar contraseña/recuperar contraseña.html">Olvidé la contraseña</a></p>
+          </div>
+          <div id="botones_inicio_sesion">
+            <button id="signUp" type="button">Registro</button>
+            <button id="signIn" type="button" class="disable">Iniciar sesión</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <script src="/Java/Inicio de sesion.js"></script>
+  </body>
+</html>

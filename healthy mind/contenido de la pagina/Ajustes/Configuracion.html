@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/CSS General/General.css">
+    <title>Configuración</title>
+</head>
+<body id="config_body">
+    <div id="config_container" class="config_container">
+        <h2>Configuración</h2>
+
+        <div class="config">
+            <div class="config_item" id="change-name">
+                <span>👤</span>
+                <p>Cambiar nombre de usuario</p>
+            </div>
+            <div class="config_item">
+                <span>📸</span>
+                <p>Foto de perfil</p>
+            </div>
+            <div class="config_item" id="toggle-theme">
+                <span>🌗</span>
+                <p>Tema: <span id="theme-status">Claro</span></p>
+            </div>
+            <div class="config_item">
+                <span>🔒</span>
+                <p>Seguridad</p>
+            </div>
+            <div class="config_item">
+                <span>📜</span>
+                <p>Políticas de privacidad</p>
+            </div>
+            <div class="config_item danger" id="block-users">
+                <span>🚫</span>
+                <p>Usuarios bloqueados</p>
+            </div>
+            <div class="config_item danger">
+                <span>🗑️</span>
+                <p>Eliminar cuenta</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="name-modal" class="cambio_modal">
+        <div class="modal-content">
+            <span id="close-name" class="close-btn">✖</span> 
+            <h2>Cambiar Nombre</h2>
+            <input type="text" id="username" placeholder="Nuevo nombre">
+            <button id="save-name">Guardar</button>
+        </div>
+    </div>
+    
+
+    <script defer src="/Java/Configuracion.js"></script>
+    
+</body>
+</html>

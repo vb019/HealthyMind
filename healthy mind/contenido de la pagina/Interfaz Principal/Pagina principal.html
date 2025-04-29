@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Healthy Mind</title>
+    <link rel="icon" href="/Imagenes/logo2.ico">
+
+    <!-- Estilos -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="/CSS General/General.css">
+
+    <!-- Fuentes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap" rel="stylesheet">
+</head>
+
+<body class="pagina_principal">
+    <header>
+        <img id="logo" class="logoprincipal" src="/Imagenes/logo.png" alt="logo">
+        
+        <button class="abrirmenu" id="abrir">
+            <i class="bi bi-list"></i>
+        </button>
+
+        <nav class="barra" id="barra">
+            <button class="cerrarmenu" id="cerrar">
+                <i class="bi bi-x"></i>
+            </button>
+            <ul class="barralista"> <!-- falta cambiar estas sentencias, hacer pruebas con documento default -->
+                <li><a href="#"><i class="bi bi-person-circle icono sesion"></i></a></li>
+                <li><a href="/contenido de la pagina/Interfaz Principal/Pagina principal.html"><i class="bi bi-house-door-fill icono"></i> Inicio</a></li>
+                <li><a href="/contenido de la pagina/Inicio de sesion/Inicio de sesión.html"><i class="bi bi-door-open-fill icono"></i> Iniciar sesión</a></li>
+                <li><a href="/contenido de la pagina/comentarios/cuadro_comentario.html"><i class="bi bi-file-earmark-fill icono"></i> Documentos</a></li>
+                <li><a href="/contenido de la pagina/Quienes somos/quienes somos.html"><i class="bi bi-question-circle-fill icono"></i> Quiénes somos</a></li>
+                <li><a href="/contenido de la pagina/Inicio de sesion/Inicio de sesión.html"><i class="bi bi-door-open-fill icono"></i> Cerrar sesión</a></li>
+                <li ><a href="/contenido de la pagina/Ajustes/Configuracion.html"><i class="bi bi-gear-fill icono configuracion"></i> Configuración</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h3 class="titulo_posts">Últimos post de amigos</h3> <!--lo mismo aqui, extraer y hacer pruebas-->
+            <div class="contenido_carrusel" id="carousel1">
+                <button class="flechas_carrusel arrow-left" onclick="moveCarousel('carousel1', -1)">&#10094;</button>
+                <div class="carousel-wrapper" data-index="0">
+                    <div class="item_carrusel">
+                        <div class="caja_comentarios"><h4>¿Cómo manejar la ansiedad?</h4></div>
+                    </div>
+                    <div class="item_carrusel">
+                        <div class="caja_comentarios"><h4>¿Dónde encontrar terapia económica?</h4></div>
+                    </div>
+                    <div class="item_carrusel">
+                        <div class="caja_comentarios"><h4>¿Es peor la soledad o una ruptura?</h4></div>
+                    </div>
+                </div>
+                <button class="flechas_carrusel arrow-right" onclick="moveCarousel('carousel1', 1)">&#10095;</button>
+            </div>
+        </section>
+
+        <section>
+            <h3 class="titulo_posts">Desahogos más virales</h3>
+            <div class="contenido_carrusel" id="carousel2">
+                <button class="flechas_carrusel arrow-left" onclick="moveCarousel('carousel2', -1)">&#10094;</button>
+                <div class="carousel-wrapper" data-index="0">
+                    <div class="item_carrusel">
+                        <div class="caja_comentarios"><h4>Mi mamá tiene un amante, ¿cómo actuar sabiendo eso?</h4></div>
+                    </div>
+                    <div class="item_carrusel">
+                        <div class="caja_comentarios"><h4>¿A alguien le gustaría hablar en privado?</h4></div>
+                    </div>
+                    <div class="item_carrusel">
+                        <div class="caja_comentarios"><h4>Denuncien a Juan</h4></div>
+                    </div>
+                </div>
+                <button class="flechas_carrusel arrow-right" onclick="moveCarousel('carousel2', 1)">&#10095;</button>
+            </div>
+        </section>
+    </main>
+
+    <nav class="botones_inferiores">
+        <div class="inferiores_item" onclick="handleClick(this)"><i class="bi bi-house-door"><a href="/contenido de la pagina/Interfaz Principal/Pagina principal.html"></a></i></div>
+        <div class="inferiores_item active" onclick="handleClick(this)"><i class="bi bi-plus-circle"></i></div>
+        <div class="inferiores_item" onclick="handleClick(this)"><i class="bi bi-bell"></i></div>
+    </nav>
+
+    <!-- Scripts -->
+    <script src="/Java/pagina principal.js"></script>
+</body>
+</html>

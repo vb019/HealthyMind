@@ -1,0 +1,280 @@
+/* Estilos generales para el cuerpo */
+.sec_quienes_somos {
+    font-family: "Comfortaa", sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color:#d3c9f7;
+    border: none;
+    box-sizing: border-box;
+}
+
+/* Estilos de la cabecera */
+.header {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    justify-content: space-between; /* Mueve el logo a la derecha */
+    align-items: center;
+    background-color: #d3c9f7;
+    text-align: center;
+    color: #d3c9f7;
+    padding: 5px 10px;
+    margin:0 20px;
+    box-shadow: 0 4px 20px hwb(293 54% 0%);
+    border-radius: 8px;
+    
+}
+
+/* Logo */
+.logo {
+    width: 300px;
+    transition: transform 0.40s;
+}
+
+.logo:hover {
+    transform: scale(1.1); /* Efecto de zoom al pasar el mouse */
+}
+
+/* Estilos de la llamada a la acción */
+.cta-button {
+    display: inline-block;
+    padding: 12px 24px;
+    color: white;
+    font-size: 18px;
+    text-decoration: none;
+    border-radius: 8px; /* Bordes redondeados */
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    background-color:#f18aff;
+}
+
+.cta-button:hover {
+    background-color:#8664ff ; /* Color más oscuro al pasar el mouse */
+    transform: scale(1.05); /* Efecto de aumento ligero */
+}
+
+/* Estilo para el título */
+.h1 {
+    font-size: 400px;
+    color: #000000;
+    font-size: 93px;
+    font-weight: 600;
+    text-align: center;
+}
+
+/* Sección */
+#cuerpo {
+    padding: 20px;
+    margin: 20px;
+    background-color: #d3c9f7;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px  rgba(241, 138, 255);
+    text-align: center;
+} 
+
+#quienes-somos {
+    border: none;
+    margin: 0;
+    padding: 0;
+    background-color:#d3c9f7;
+    
+   
+}
+
+
+/* Estilos para el equipo */
+.team {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+    flex-wrap: wrap; /* Permite que los miembros se acomoden en varias filas en pantallas pequeñas */
+}
+
+.team-member {
+    text-align: center;
+    width: 30%;
+    margin-bottom: 20px;
+}
+
+.team-member img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+
+
+/* Estilos para pantallas muy pequeñas (móviles en orientación vertical) */
+@media (max-width: 480px) {
+    .logo {
+        width: 90px; /* Aún más pequeño en pantallas muy reducidas */
+    }
+
+    .team-member {
+        width: 100%; /* Los miembros del equipo ocupan el 100% del ancho en pantallas muy pequeñas */
+    }
+
+    .section {
+        margin: 10px;
+        padding: 15px;
+        
+    }
+
+    h2 {
+        font-size: 1.4em;
+    }
+
+    h1 {
+        font-size: 20px;
+        text-align: center;
+
+    }
+
+    p {
+        font-size: 1em;
+        align-items: center;
+        
+    }
+
+    .cta-button {
+        width: 100%;
+        text-align: center;
+        padding: 2px;
+    }
+}
+
+/* Sección */
+#cuerpo {
+    padding: 20px;
+    margin: 20px;
+    background-color: #d3c9f7;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px  rgba(241, 138, 255);
+    text-align: justify;
+} 
+
+#quienes-somos {
+    border: none;
+    margin: 0;
+    padding: 0;
+    background-color:#d3c9f7;
+    
+   
+}
+
+
+/* Estilos para el equipo */
+.team {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+    flex-wrap: wrap; /* Permite que los miembros se acomoden en varias filas en pantallas pequeñas */
+}
+
+.team-member {
+    text-align: center;
+    width: 30%;
+    margin-bottom: 20px;
+}
+
+.team-member img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+/* Estilos generales para el div de contacto_correo */
+.contacto_correo {
+    background-color: #df7af8; /* Fondo gris claro */
+    padding: 20px; /* Espaciado interno */
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+    max-width: 400px; /* Ancho máximo */
+    margin: 30px auto; /* Centrado automático */
+    text-align: center; /* Centrar el texto */
+    transition: box-shadow 0.6s ease, transform 0.6s ease; /* Transición suave para sombra y transformación */
+  }
+  
+  /* Estilos para el enlace de correo */
+  .contacto_correo a {
+    color: #ffffff; /* Color del enlace (azul) */
+    text-decoration: none; /* Eliminar subrayado */
+    font-size: 18px; /* Tamaño de la fuente */
+    font-weight: bold; /* Negrita */
+    transition: color 0.3s ease, transform 0.2s ease; /* Transición suave para el color y la transformación */
+  }
+  
+  /* Estilo cuando se pasa el ratón sobre el enlace */
+  .contacto_correo a:hover {
+    color: #9eecff; /* Color más oscuro cuando se pasa el ratón */
+    transform: scale(1.9); /* Aumenta ligeramente el tamaño del texto */
+  }
+  
+  /* Estilo cuando se pasa el ratón sobre el div de contacto_correo */
+  .contacto_correo:hover {
+    transform: translateY(-5px); /* Mover ligeramente el div hacia arriba */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Sombra más grande al pasar el ratón */
+  }
+  
+  /* Estilos responsivos */
+  @media (max-width: 768px) {
+    .contacto_correo {
+      max-width: 90%; /* El ancho se ajusta al 90% de la pantalla */
+      padding: 15px; /* Reducir el padding */
+    }
+  
+    .contacto_correo a {
+      font-size: 16px; /* Reducir el tamaño del texto en pantallas pequeñas */
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .contacto_correo {
+      max-width: 100%; /* El div ocupa todo el ancho disponible */
+      padding: 10px; /* Reducir más el padding */
+    }
+  
+    .contacto_correo a {
+      font-size: 14px; /* Reducir aún más el tamaño del texto */
+    }
+  }
+  
+
+/* Estilos para pantallas muy pequeñas (móviles en orientación vertical) */
+@media (max-width: 480px) {
+    .logo {
+        width: 90px; /* Aún más pequeño en pantallas muy reducidas */
+    }
+
+    .team-member {
+        width: 100%; /* Los miembros del equipo ocupan el 100% del ancho en pantallas muy pequeñas */
+    }
+
+    .section {
+        margin: 10px;
+        padding: 15px;
+    }
+
+    h2 {
+        font-size: 1.4em;
+    }
+
+    h1 {
+        font-size: 20px;
+        text-align: center;
+    }
+
+    p {
+        font-size: 1em;
+    }
+
+    .cta-button {
+        width: 100%;
+        text-align: center;
+        padding: 2px;
+    }
+}
+
+
+
+
+
